@@ -6,7 +6,6 @@ import scifi from "../data/scifi.json";
 
 
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
-
 import { Component } from "react";
 
 class AllTheBooks extends Component {
@@ -28,7 +27,6 @@ class AllTheBooks extends Component {
                                                 {b.price} €
                                             </Card.Text>
                                         </div>
-
                                         <Button variant="primary">Scopri di più</Button>
                                     </Card.Body>
                                 </Card>
