@@ -12,74 +12,11 @@ import { Component } from "react";
 class AllTheBooks extends Component {
 
     render() {
+        const allBooks = [...fantasy, ...history, ...horror, ...romance, ...scifi]
         return (
             <Container>
                 <Row className="justify-content-center my-4">
-                    {fantasy.map((b) => {
-                        return (
-                            <Col xs={12} md={6} lg={4} xl={3} xxl={2}>
-                                <Card style={{ width: '100%' }}>
-                                    <Card.Img variant="top" src={b.img} />
-                                    <Card.Body>
-                                        <Card.Title>{b.title}</Card.Title>
-                                        <Card.Text>
-                                            {b.price} €
-                                        </Card.Text>
-                                        <Button variant="primary">Scopri di più</Button>
-                                    </Card.Body>
-                                </Card>
-                            </Col>
-                        )
-                    })}
-                    {history.map((b) => {
-                        return (
-                            <Col xs={12} md={6} lg={4} xl={3} xxl={2}>
-                                <Card style={{ width: '100%' }}>
-                                    <Card.Img variant="top" src={b.img} />
-                                    <Card.Body>
-                                        <Card.Title>{b.title}</Card.Title>
-                                        <Card.Text>
-                                            {b.price} €
-                                        </Card.Text>
-                                        <Button variant="primary">Scopri di più</Button>
-                                    </Card.Body>
-                                </Card>
-                            </Col>
-                        )
-                    })}
-                    {horror.map((b) => {
-                        return (
-                            <Col xs={12} md={6} lg={4} xl={3} xxl={2}>
-                                <Card style={{ width: '100%' }}>
-                                    <Card.Img variant="top" src={b.img} />
-                                    <Card.Body>
-                                        <Card.Title>{b.title}</Card.Title>
-                                        <Card.Text>
-                                            {b.price} €
-                                        </Card.Text>
-                                        <Button variant="primary">Scopri di più</Button>
-                                    </Card.Body>
-                                </Card>
-                            </Col>
-                        )
-                    })}
-                    {romance.map((b) => {
-                        return (
-                            <Col xs={12} md={6} lg={4} xl={3} xxl={2}>
-                                <Card style={{ width: '100%' }}>
-                                    <Card.Img variant="top" src={b.img} />
-                                    <Card.Body>
-                                        <Card.Title>{b.title}</Card.Title>
-                                        <Card.Text>
-                                            {b.price} €
-                                        </Card.Text>
-                                        <Button variant="primary">Scopri di più</Button>
-                                    </Card.Body>
-                                </Card>
-                            </Col>
-                        )
-                    })}
-                     {scifi.map((b) => {
+                    {allBooks.map((b) => {
                         return (
                             <Col xs={12} md={6} lg={4} xl={3} xxl={2}>
                                 <Card style={{ width: '100%' }}>

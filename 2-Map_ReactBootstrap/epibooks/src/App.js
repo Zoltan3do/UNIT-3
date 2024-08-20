@@ -1,10 +1,9 @@
 import "bootstrap/dist/css/bootstrap.min.css"
-import './App.css';
 import MyNav from "./components/MyNav";
 import MyFooter from "./components/MyFooter";
 import Welcome from "./components/Welcome";
 import AllTheBooks from "./components/AllTheBooks";
-
+import './App.css';
 function App() {
   return (
     <>
@@ -12,11 +11,10 @@ function App() {
         <MyNav />
       </header>
       <main>
-        <AllTheBooks/>
-        <Welcome/>
-
+        <AllTheBooks />
+        <Welcome />
       </main>
-      <MyFooter/>
+      <MyFooter />
     </>
   );
 }
