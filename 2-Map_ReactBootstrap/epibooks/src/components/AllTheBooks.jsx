@@ -28,7 +28,7 @@ class AllTheBooks extends Component {
                                                 {b.price} €
                                             </Card.Text>
                                         </div>
-
+                                        
                                         <Button variant="primary">Scopri di più</Button>
                                     </Card.Body>
                                 </Card>
