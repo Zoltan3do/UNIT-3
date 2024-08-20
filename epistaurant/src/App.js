@@ -1,26 +1,22 @@
-import logo from './logo.svg';
-import "bootstrap/dist/css/bootstrap.css";
-import './App.css';
+// RICORDIAMOCI DI INCLUDERE IN APP.JS IL FILE CSS DI BOOTSTRAP PRESENTE IN NODE_MODULES
+// !!!
+import 'bootstrap/dist/css/bootstrap.min.css'
+// !!!
+import './App.css'
+import CustomNavbar from './components/CustomNavbar'
+import Home from './components/Home'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p className="border border-2 border-black p-3">
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <>
+      <header>
+        <CustomNavbar />
       </header>
-    </div>
-  );
+      <main>
+        <Home />
+      </main>
+    </>
+  )
 }
 
-export default App;
+export default App
