@@ -18,14 +18,17 @@ class AllTheBooks extends Component {
                 <Row className="justify-content-center my-4">
                     {allBooks.map((b) => {
                         return (
-                            <Col xs={12} md={6} lg={4} xl={3} xxl={2}>
-                                <Card style={{ width: '100%' }}>
+                            <Col xs={12} md={6} lg={4} xl={3} xxl={2} className="my-2">
+                                <Card style={{ width: '100%' }} className="h-100 d-flex flex-column">
                                     <Card.Img variant="top" src={b.img} />
-                                    <Card.Body>
-                                        <Card.Title>{b.title}</Card.Title>
-                                        <Card.Text>
-                                            {b.price} €
-                                        </Card.Text>
+                                    <Card.Body className="d-flex flex-column">
+                                        <div className="flex-grow-1">
+                                            <Card.Title>{b.title}</Card.Title>
+                                            <Card.Text>
+                                                {b.price} €
+                                            </Card.Text>
+                                        </div>
+
                                         <Button variant="primary">Scopri di più</Button>
                                     </Card.Body>
                                 </Card>
