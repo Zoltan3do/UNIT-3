@@ -30,7 +30,7 @@ class BookList extends Component {
                 <Form className="fattiVedere">
                     <FormControl
                         type="text"
-                        placeholder="Search by title..."
+                        placeholder="Cerca per titolo"
                         value={this.state.search}
                         onChange={this.handleSearch}
                     />
