@@ -15,3 +15,7 @@ code {
 .transformationScale {
   transform: scale(1.15);
 }
+
+.fattiVedere{
+  margin-top: 100px;
+}

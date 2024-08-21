@@ -5,20 +5,40 @@ import fantasy from "../data/fantasy.json";
 // import scifi from "../data/scifi.json";
 
 
-import { Container, Row } from "react-bootstrap";
+import { Container, Row, Form, FormControl } from "react-bootstrap";
 import { Component } from "react";
 import SingleBook from "./SingleBook";
 
 class BookList extends Component {
+    state = {
+        search: "",
+        allBooks: [...fantasy]
+    };
+
+    handleSearch = (event) => {
+        this.setState({ search: event.target.value });
+    }
+
+    filteredBooks = () => {
+        return this.state.allBooks.filter((book) =>
+            book.title.toLowerCase().includes(this.state.search.toLowerCase()))
+    }
 
     render() {
-        const allBooks = [...fantasy];
         return (
             <Container>
+                <Form className="fattiVedere">
+                    <FormControl
+                        type="text"
+                        placeholder="Search by title..."
+                        value={this.state.search}
+                        onChange={this.handleSearch}
+                    />
+                </Form>
                 <Row className="justify-content-center my-4">
-                    {allBooks.map((b) => {
+                    {this.filteredBooks().map((b) => {
                         return (
-                            <SingleBook book={b} />
+                            <SingleBook key={b.asin} book={b} />
                         )
                     })}
                 </Row>

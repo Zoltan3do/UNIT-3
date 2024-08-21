@@ -2,7 +2,7 @@ import {Navbar, Container, Nav} from "react-bootstrap"
 
 function MyNav() {
     return (
-        <Navbar expand="lg" className="bg-body-tertiary fixed-top ">
+        <Navbar expand="lg" className="bg-body-tertiary fixed-top mb-5">
             <Container>
                 <Navbar.Brand href="#">Epibooks</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
