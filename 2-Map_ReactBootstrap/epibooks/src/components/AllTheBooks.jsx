@@ -37,6 +37,5 @@ class AllTheBooks extends Component {
             </Container>
         )
     }
-
 }
 export default AllTheBooks;

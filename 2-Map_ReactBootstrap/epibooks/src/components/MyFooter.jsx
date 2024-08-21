@@ -1,7 +1,7 @@
 
 function MyFooter() {
     return (
-        <footer className="bg-dark text-white text-center text-lg-start ">
+        <footer className="bg-dark text-white text-center text-lg-start mt-5">
             <div className="container p-4">
                 <div className="row">
                     <div className="col-lg-4 col-md-6 mb-4 mb-md-0">
