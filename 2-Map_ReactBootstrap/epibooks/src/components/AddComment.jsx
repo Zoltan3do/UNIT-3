@@ -35,9 +35,6 @@ class AddComment extends Component {
                     throw new Error("errore nella chiamata")
                 }
             })
-            .then((data) => {
-                this.setState({ comments: data });
-            })
             .catch((e) => {
                 console.error(e);
             })
