@@ -13,15 +13,13 @@ class AddComment extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-
-        fetch(`https://striveschool-api.herokuapp.com/api/comments/`, {
+        fetch("https://striveschool-api.herokuapp.com/api/comments/", {
             method: "POST",
             body: JSON.stringify(this.state.review),
             headers: {
                 "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmM3NGRjYzQzYTU2ODAwMTU4ZWM0NGYiLCJpYXQiOjE3MjQzMzc2MTIsImV4cCI6MTcyNTU0NzIxMn0.dyWUC4Qa-VTrKQ-El1RR6v3anSy3He8ma8qpOFTha2Y",
                 "Content-Type": "application/json"
             },
-            
         })
             .then((response) => {
                 if (response.ok) {
