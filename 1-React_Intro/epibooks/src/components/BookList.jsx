@@ -1,27 +1,28 @@
 import fantasy from "../data/fantasy.json";
-// import history from "../data/history.json";
-// import horror from "../data/horror.json";
-// import romance from "../data/romance.json";
-// import scifi from "../data/scifi.json";
-
-
-import { Container, Row, Form, FormControl } from "react-bootstrap";
+import { Container, Row, Col, Form, FormControl } from "react-bootstrap";
 import { Component } from "react";
 import SingleBook from "./SingleBook";
+import CommentArea from "./CommentArea";
 
 class BookList extends Component {
     state = {
         search: "",
-        allBooks: [...fantasy]
+        allBooks: [...fantasy],
+        selectedBook: null // Stato per il libro selezionato
     };
 
     handleSearch = (event) => {
         this.setState({ search: event.target.value });
     }
 
+    handleBookSelection = (book) => {
+        this.setState({ selectedBook: book }); // Aggiorna lo stato con il libro selezionato
+    }
+
     filteredBooks = () => {
         return this.state.allBooks.filter((book) =>
-            book.title.toLowerCase().includes(this.state.search.toLowerCase()))
+            book.title.toLowerCase().includes(this.state.search.toLowerCase())
+        );
     }
 
     render() {
@@ -35,15 +36,31 @@ class BookList extends Component {
                         onChange={this.handleSearch}
                     />
                 </Form>
-                <Row className="justify-content-center my-4">
-                    {this.filteredBooks().map((b) => {
-                        return (
-                            <SingleBook key={b.asin} book={b} />
-                        )
-                    })}
+                <Row className="my-4">
+                    <Col md={8}>
+                        <Row className="justify-content-center">
+                            {this.filteredBooks().map((b) => (
+                                <SingleBook 
+                                    key={b.asin} 
+                                    book={b} 
+                                    onBookSelect={this.handleBookSelection} 
+                                    isSelected={this.state.selectedBook === b} // Passa la selezione
+                                />
+                            ))}
+                        </Row>
+                    </Col>
+                    <Col md={4}>
+                        {/* CommentArea ora dipende dalla selezione del libro */}
+                        {this.state.selectedBook ? (
+                            <CommentArea bookId={this.state.selectedBook.asin} />
+                        ) : (
+                            <p>Seleziona un libro per vedere i commenti</p>
+                        )}
+                    </Col>
                 </Row>
             </Container>
-        )
+        );
     }
 }
+
 export default BookList;
