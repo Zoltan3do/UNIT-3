@@ -1,66 +1,69 @@
 import fantasy from "../data/fantasy.json";
 import { Container, Row, Col, Form, FormControl } from "react-bootstrap";
-import { Component } from "react";
 import SingleBook from "./SingleBook";
 import CommentArea from "./CommentArea";
+import { useState } from "react"
 
-class BookList extends Component {
-    state = {
-        search: "",
-        allBooks: [...fantasy],
-        selectedBook: null // Stato per il libro selezionato
-    };
+function BookList() {
 
-    handleSearch = (event) => {
-        this.setState({ search: event.target.value });
+    const [search, setSearch] = useState("");
+    const [allBooks, setAllBooks] = useState([...fantasy]);
+    const [selectedBook, setSelectedBook] = useState(null);
+
+    // state = {
+    //     search: "",
+    //     allBooks: [...fantasy],
+    //     selectedBook: null // Stato per il libro selezionato
+    // };
+
+    function handleSearch(event) {
+        setSearch(event.target.value);
     }
 
-    handleBookSelection = (book) => {
-        this.setState({ selectedBook: book }); // Aggiorna lo stato con il libro selezionato
+    function handleBookSelection(book) {
+        setSelectedBook(book); // Aggiorna lo stato con il libro selezionato
     }
 
-    filteredBooks = () => {
-        return this.state.allBooks.filter((book) =>
-            book.title.toLowerCase().includes(this.state.search.toLowerCase())
+    function filteredBooks() {
+        return allBooks.filter((book) =>
+            book.title.toLowerCase().includes(search.toLowerCase())
         );
     }
 
-    render() {
-        return (
-            <Container>
-                <Form className="fattiVedere">
-                    <FormControl
-                        type="text"
-                        placeholder="Cerca per titolo"
-                        value={this.state.search}
-                        onChange={this.handleSearch}
-                    />
-                </Form>
-                <Row className="my-4">
-                    <Col md={8}>
-                        <Row className="justify-content-center">
-                            {this.filteredBooks().map((b) => (
-                                <SingleBook 
-                                    key={b.asin} 
-                                    book={b} 
-                                    onBookSelect={this.handleBookSelection} 
-                                    isSelected={this.state.selectedBook === b} // Passa la selezione
-                                />
-                            ))}
-                        </Row>
-                    </Col>
-                    <Col md={4}>
-                        {/* CommentArea ora dipende dalla selezione del libro */}
-                        {this.state.selectedBook ? (
-                            <CommentArea bookId={this.state.selectedBook.asin} />
-                        ) : (
-                            <p>Seleziona un libro per vedere i commenti</p>
-                        )}
-                    </Col>
-                </Row>
-            </Container>
-        );
-    }
+    return (
+        <Container>
+            <Form className="fattiVedere">
+                <FormControl
+                    type="text"
+                    placeholder="Cerca per titolo"
+                    value={search}
+                    onChange={handleSearch}
+                />
+            </Form>
+            <Row className="my-4">
+                <Col md={8}>
+                    <Row className="justify-content-center">
+                        {filteredBooks().map((b) => (
+                            <SingleBook
+                                key={b.asin}
+                                book={b}
+                                onBookSelect={handleBookSelection}
+                                isSelected={selectedBook === b} // Passa la selezione
+                            />
+                        ))}
+                    </Row>
+                </Col>
+                <Col md={4}>
+                    {/* CommentArea ora dipende dalla selezione del libro */}
+                    {selectedBook ? (
+                        <CommentArea bookId={selectedBook.asin} />
+                    ) : (
+                        <p>Seleziona un libro per vedere i commenti</p>
+                    )}
+                </Col>
+            </Row>
+        </Container>
+    );
 }
 
 export default BookList;
