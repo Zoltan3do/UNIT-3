@@ -26,7 +26,11 @@ function App() {
             </main>
           } />
           <Route path='/shows' element={<Shows />} />
-          <Route path='/movie-details/:movieId' element={<MovieDetails />} />
+          <Route path='/movie-details/:movieId' element={
+            <div className='d-flex justify-content-center'>
+              <MovieDetails />
+            </div>
+          } />
         </Routes>
 
         <MyFooter />
