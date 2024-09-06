@@ -44,7 +44,7 @@ const TrendingNow = ({ term }) => {
                     <div className="row">
                         {films.slice(i * 6, i * 6 + 6).map((f, index) => (
                             <div key={index} className="col-4 col-lg-2 px-1">
-                                <Link className='nav-link' to={`/movieDetails/${f.imdbID}`}><img src={f.Poster} className="d-block w-100" alt={f.Title} /></Link>
+                                <Link className='nav-link' to={`/movie-details/${f.imdbID}`}><img src={f.Poster} className="d-block w-100" alt={f.Title} /></Link>
                             </div>
                         ))}
                     </div>

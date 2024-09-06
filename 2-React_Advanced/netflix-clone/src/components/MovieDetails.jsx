@@ -53,7 +53,7 @@ function MovieDetails() {
         fetchFilms();
         fetchComments()
         console.log(data2)
-    }, [params.movieId])
+    }, [])
 
 
     return (
