@@ -45,10 +45,10 @@ function BookList() {
                     <Row className="justify-content-center">
                         {filteredBooks().map((b) => (
                             <SingleBook
-                                key={b.asin}
-                                book={b}
-                                onBookSelect={handleBookSelection}
-                                isSelected={selectedBook === b} // Passa la selezione
+                            key={b.asin}
+                            book={b}
+                            onBookSelect={handleBookSelection}
+                            isSelected={selectedBook === b}
                             />
                         ))}
                     </Row>
@@ -56,7 +56,7 @@ function BookList() {
                 <Col md={4}>
                     {/* CommentArea ora dipende dalla selezione del libro */}
                     {selectedBook ? (
-                        <CommentArea bookId={selectedBook.asin} />
+                        <CommentArea bookId={selectedBook.asin} data-testid="areacommenti"/>
                     ) : (
                         <p>Seleziona un libro per vedere i commenti</p>
                     )}

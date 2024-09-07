@@ -17,8 +17,8 @@ class AddComment extends Component {
             method: "POST",
             body: JSON.stringify(this.state.review),
             headers: {
-                "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmM3NGRjYzQzYTU2ODAwMTU4ZWM0NGYiLCJpYXQiOjE3MjQzMzc2MTIsImV4cCI6MTcyNTU0NzIxMn0.dyWUC4Qa-VTrKQ-El1RR6v3anSy3He8ma8qpOFTha2Y",
-                "Content-Type": "application/json"
+                "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmEzNGViNmYyNjBjYzAwMTVjYzBkY2QiLCJpYXQiOjE3MjU2NDQ4NzAsImV4cCI6MTcyNjg1NDQ3MH0.e0_OTv1d4lkiPGRMkSk8wZIuwie6zJ5RDAL00fgz37I",
+                "Content-type": "application/json"
             },
         })
             .then((response) => {

@@ -2,7 +2,7 @@ import { ListGroupItem } from "react-bootstrap";
 
 const SingleComment = (props) => {
     return (
-        <ListGroupItem>
+        <ListGroupItem data-testid="commentino">
             {props.commento.rate} - {props.commento.comment}
         </ListGroupItem>
     )

@@ -3,7 +3,7 @@ import CommentList from "./CommentList";
 import AddComment from "./AddComment";
 import { useState, useEffect } from "react"
 
-function CommentArea() {
+function CommentArea({bookId}) {
 
     const [comments, setComments] = useState([]);
 
@@ -13,10 +13,11 @@ function CommentArea() {
 
     function fetchComments() {
         setComments([]);
-        fetch(`https://striveschool-api.herokuapp.com/api/comments/${this.props.bookId}`, {
+        fetch(`https://striveschool-api.herokuapp.com/api/comments/${bookId}`, {
 
             headers: {
-                "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmM3NGRjYzQzYTU2ODAwMTU4ZWM0NGYiLCJpYXQiOjE3MjQzMzc2MTIsImV4cCI6MTcyNTU0NzIxMn0.dyWUC4Qa-VTrKQ-El1RR6v3anSy3He8ma8qpOFTha2Y"
+                "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmEzNGViNmYyNjBjYzAwMTVjYzBkY2QiLCJpYXQiOjE3MjU2NDQ4NzAsImV4cCI6MTcyNjg1NDQ3MH0.e0_OTv1d4lkiPGRMkSk8wZIuwie6zJ5RDAL00fgz37I",
+                "Content-type": "application/json"
             }
         })
             .then((response) => {
@@ -36,7 +37,7 @@ function CommentArea() {
 
     useEffect(() => {
         fetchComments()
-    }, [this.props.bookId])
+    }, [bookId])
 
     // componentDidMount() {
     //     fetchComments();
@@ -52,7 +53,7 @@ function CommentArea() {
     return (
         <div>
             <CommentList comments={comments} />
-            <AddComment asin={this.props.bookId} />
+            <AddComment asin={bookId} />
         </div>
     );
 }
