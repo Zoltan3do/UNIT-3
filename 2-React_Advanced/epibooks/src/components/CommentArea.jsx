@@ -51,7 +51,7 @@ function CommentArea({bookId}) {
     // }
 
     return (
-        <div>
+        <div data-testid="areacommenti">
             <CommentList comments={comments} />
             <AddComment asin={bookId} />
         </div>

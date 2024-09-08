@@ -2,8 +2,6 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import Welcome from './components/Welcome';
 import BookList from './components/BookList';
 import fantasy from './data/fantasy.json';
-import CommentArea from './components/CommentArea';
-import SingleBook from './components/SingleBook';
 
 test('controllo se welcome viene testato correttamente', () => {
   render(<Welcome />);
@@ -17,12 +15,11 @@ test("verifico che vengano effettivamente renderizzate tante bootstrap cards qua
   expect(numeroCards.length).toBe(fantasy.length);
 })
 
-//da finire
 test("Il componente commentArea viene renderizzato correttamente", async () => {
-  render(<><CommentArea /> <SingleBook /></>);
-  const commentArea = await screen.findByTestId("areacommenti");
+  render(<><BookList /></>);
   const card = screen.getAllByTestId("single-book")[0];
   fireEvent.click(card)
+  const commentArea = await screen.findByTestId("areacommenti");
   expect(commentArea).toBeInTheDocument();
 })
 
@@ -36,11 +33,9 @@ test("Il filtraggio dei libri funziona", async () => {
   expect(filteredBook).toHaveLength(2);
 })
 
-//da finire
 test('applica la trasformazione scale quando la card viene cliccata', () => {
-  render(<SingleBook />);
+  render(<BookList />);
   const cards = screen.getAllByTestId("single-book");
-
   expect(cards[0]).not.toHaveClass('transformationScale');
   fireEvent.click(cards[0]);
   expect(cards[0]).toHaveClass('transformationScale');
